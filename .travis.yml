@@ -44,6 +44,6 @@ before_script:
 
 script:
     - if [[ "$DEPENDENCIES" = 'high' ]] && [[ "$TRAVIS_PHP_VERSION" = '7.2' ]]; then
-        composer crunz:analyze;
+        composer app:checks;
       fi
     - vendor/bin/phpunit
