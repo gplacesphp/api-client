@@ -1,0 +1,11 @@
+/vendor
+/vendor-bin/*/vendor/
+/tasks
+composer.phar
+/composer.lock
+.DS_Store
+*.log
+.idea/
+var/
+.vagrant/
+.php_cs.cache

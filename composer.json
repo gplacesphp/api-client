@@ -1,0 +1,51 @@
+{
+    "name": "gplacesphp/api-client",
+    "description": "Modern Google Places API client for PHP",
+    "type": "library",
+    "keywords": [
+        "google places api",
+        "places api"
+    ],
+    "homepage": "https://github.com/gplacesphp/api-client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PabloKowalczyk",
+            "homepage": "https://github.com/PabloKowalczyk",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/gplacesphp/api-client/issues"
+    },
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "ext-mbstring": "*",
+        "bamarni/composer-bin-plugin": "^1.2",
+        "phpunit/phpunit": "^7.4",
+        "symfony/phpunit-bridge": "^4.1",
+        "symfony/var-dumper": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "GPlacesPhp\\ApiClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GPlacesPhp\\ApiClient\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "cs-fixer:fix": "@php vendor/bin/php-cs-fixer fix --diff -v --ansi",
+        "cs-fixer:analyze": "@php vendor/bin/php-cs-fixer fix --diff --dry-run -v",
+        "phpstan:analyze": "vendor/bin/phpstan analyze --level=7 --no-progress src tests"
+    }
+}

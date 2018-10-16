@@ -1,0 +1,6 @@
+{
+    "require": {
+        "friendsofphp/php-cs-fixer": "^2.13",
+        "phpstan/phpstan": "^0.10.3"
+    }
+}
