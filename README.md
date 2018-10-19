@@ -31,6 +31,7 @@ Things to do before stable `v1` release:
 - [ ] Places Search
 - [ ] Caching Places Search
 - [ ] Place Photos
+- [ ] Caching Place Photos
 
 ## License
 This package is free software distributed under the terms of the MIT license.
