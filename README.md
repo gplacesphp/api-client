@@ -8,7 +8,13 @@
 
 |Version|Linux build|Windows build|
 |---|---|---|
-|v1 (master)|[![Travis (.org) branch](https://img.shields.io/travis/gplacesphp/api-client/master.svg?style=flat-square)](https://travis-ci.org/gplacesphp/api-client)|[![AppVeyor branch](https://img.shields.io/appveyor/ci/PabloKowalczyk/api-client/master.svg?style=flat-square)](https://ci.appveyor.com/project/PabloKowalczyk/api-client) 
+|v1 (master)|[![Travis (.org) branch](https://img.shields.io/travis/gplacesphp/api-client/master.svg?style=flat-square)](https://travis-ci.org/gplacesphp/api-client)|[![AppVeyor branch](https://img.shields.io/appveyor/ci/PabloKowalczyk/api-client/master.svg?style=flat-square)](https://ci.appveyor.com/project/PabloKowalczyk/api-client)
+
+## Introduction
+
+Modern, Object-Oriented, client for using Google's Places API, requires PHP v7.1+.
+Supports caching by any PSR-16 (simple cache) implementation,
+also works with any HTTPlug client/adapter.
 
 ## Installation
 
