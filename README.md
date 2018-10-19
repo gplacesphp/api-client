@@ -1,10 +1,8 @@
 # Google Places PHP Api Client
 
-
 [![Packagist](https://img.shields.io/packagist/v/gplacesphp/api-client.svg?style=flat-square)](https://packagist.org/packages/gplacesphp/api-client)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/gplacesphp/api-client.svg?style=flat-square)](https://packagist.org/packages/gplacesphp/api-client)
 [![Packagist](https://img.shields.io/packagist/dt/gplacesphp/api-client.svg?style=flat-square)](https://packagist.org/packages/gplacesphp/api-client)
-
 
 ## Build status
 
