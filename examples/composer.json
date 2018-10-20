@@ -1,0 +1,17 @@
+{
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^7.1",
+        "gplacesphp/api-client": "^0.1.0",
+        "php-http/curl-client": "^1.7",
+        "symfony/cache": "^4.1",
+        "symfony/var-dumper": "^4.1",
+        "zendframework/zend-diactoros": "^2.0"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    }
+}
