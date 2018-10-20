@@ -13,6 +13,7 @@
 ## Introduction
 
 Modern, Object-Oriented, client for using Google's Places API, requires PHP v7.1+.
+Any PSR-7 (HTTP Message Interface) and PSR-17 (HTTP Factories) implementations is supported (and required).
 Supports caching by any PSR-16 (simple cache) implementation,
 also works with any HTTPlug client/adapter.
 
