@@ -26,12 +26,13 @@ composer require gplacesphp/api-client
 
 Things to do before stable `v1` release:
 
-- [ ] Place Details
-- [ ] Caching Place Details
+- [x] Place Details
+- [x] Caching Place Details
 - [ ] Places Search
 - [ ] Caching Places Search
 - [ ] Place Photos
 - [ ] Caching Place Photos
+- [ ] Use `PSR-18` instead of `HTTPlug`
 
 ## License
 This package is free software distributed under the terms of the MIT license.
