@@ -96,4 +96,18 @@ final class Review
             $data['time'] ?? 0
         );
     }
+
+    public function toArray(): array
+    {
+        return [
+            'author_name' => $this->authorName,
+            'author_url' => $this->authorUrl,
+            'language' => $this->language,
+            'profile_photo_url' => $this->profilePhotoUrl,
+            'rating' => $this->rating,
+            'relative_time_description' => $this->relativeTimeDescription,
+            'text' => $this->text,
+            'time' => $this->time,
+        ];
+    }
 }
