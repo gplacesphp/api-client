@@ -1,8 +1,10 @@
 /vendor
+/examples/vendor
 /vendor-bin/*/vendor/
 /tasks
 composer.phar
 /composer.lock
+/examples/composer.lock
 .DS_Store
 *.log
 .idea/
