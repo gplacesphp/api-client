@@ -46,4 +46,13 @@ final class Component
             ...$data['types'] ?? []
         );
     }
+
+    public function toArray(): array
+    {
+        return [
+            'long_name' => $this->longName,
+            'short_name' => $this->shortName,
+            'types' => $this->types,
+        ];
+    }
 }

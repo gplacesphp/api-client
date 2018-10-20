@@ -24,4 +24,25 @@ final class ComponentTest extends TestCase
         $this->assertSame('Poland', $component->longName());
         $this->assertSame(['country', 'political'], $component->types());
     }
+
+    /** @test */
+    public function component_can_be_represented_as_array(): void
+    {
+        $component = Component::fromArray(
+            [
+                'short_name' => 'PL',
+                'long_name' => 'Poland',
+                'types' => ['country', 'political'],
+            ]
+        );
+
+        $this->assertSame(
+            [
+                'long_name' => 'Poland',
+                'short_name' => 'PL',
+                'types' => ['country', 'political'],
+            ],
+            $component->toArray()
+        );
+    }
 }
