@@ -31,4 +31,12 @@ final class Location
     {
         return new self($data['lat'] ?? 0.0, $data['lng'] ?? 0.0);
     }
+
+    public function toArray(): array
+    {
+        return [
+            'lat' => $this->latitude,
+            'lng' => $this->longitude,
+        ];
+    }
 }
