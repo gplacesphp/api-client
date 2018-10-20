@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace GPlacesPhp\ApiClient\Tests\Unit\Client\PlaceDetails\Geometry;
 
 use GPlacesPhp\ApiClient\Client\PlaceDetails\Geometry\Viewport;
+use GPlacesPhp\ApiClient\Tests\TestCase\Mother\LocationMother;
 use PHPUnit\Framework\TestCase;
 
 final class ViewportTest extends TestCase
@@ -14,14 +15,8 @@ final class ViewportTest extends TestCase
     {
         $viewport = Viewport::fromArray(
             [
-                'northeast' => [
-                    'lat' => 12.145151,
-                    'lng' => 23.123412,
-                ],
-                'southwest' => [
-                    'lat' => 34.522541,
-                    'lng' => 45.803471,
-                ],
+                'northeast' => LocationMother::withValues(12.145151, 23.123412)->toArray(),
+                'southwest' => LocationMother::withValues(34.522541, 45.803471)->toArray(),
             ]
         );
 

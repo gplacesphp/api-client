@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GPlacesPhp\ApiClient\Tests\Unit\Client\PlaceDetails\Geometry;
 
-use GPlacesPhp\ApiClient\Client\PlaceDetails\Geometry\Location;
+use GPlacesPhp\ApiClient\Tests\TestCase\Mother\LocationMother;
 use PHPUnit\Framework\TestCase;
 
 final class LocationTest extends TestCase
@@ -14,12 +14,7 @@ final class LocationTest extends TestCase
     {
         $lat = 21.43242;
         $lng = 52.43243;
-        $location = Location::fromArray(
-            [
-                'lat' => $lat,
-                'lng' => $lng,
-            ]
-        );
+        $location = LocationMother::withValues($lat, $lng);
 
         $this->assertSame($lat, $location->latitude());
         $this->assertSame($lng, $location->longitude());
@@ -34,7 +29,7 @@ final class LocationTest extends TestCase
             'lat' => $lat,
             'lng' => $lng,
         ];
-        $location = Location::fromArray($data);
+        $location = LocationMother::withValues($lat, $lng);
 
         $this->assertSame($data, $location->toArray());
     }
