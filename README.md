@@ -25,29 +25,29 @@ composer require gplacesphp/api-client
 
 ## Usage
 
-More usage examples are in `examples` directory.
-
-### Place details
-
-#### Basic example
-
-This example uses `php-http/curl-client` as a http-client
+This examples uses `php-http/curl-client` as a http-client
 and `zendframework/zend-diactoros` as a PSR-7/PSR-17 implementation.
 Any other PSR-7/PSR-17 implementations are supported.
+If you don't have them installed you will need to run:
 
-If you don't have them install you will ned to run:
 ```bash
 composer require php-http/curl-client zendframework/zend-diactoros
 ```
 
 Remember to replace `<YOUR_API_KEY>` with you key. 
 
+More usage examples are in `examples` directory.
+
+### Place details
+
+#### Basic example
+
 ```php
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$apiKey = ''<YOUR_API_KEY>'';
+$apiKey = '<YOUR_API_KEY>';
 $httpClient = new \Http\Client\Curl\Client();
 $requestFactory = new \Zend\Diactoros\RequestFactory();
 
@@ -60,6 +60,31 @@ $client = \GPlacesPhp\ApiClient\Client::create(
 $placeDetails = $client->placeDetails('ChIJAZ-GmmbMHkcR_NPqiCq-8HI'); // Warsaw
 
 var_dump($placeDetails);
+
+```
+
+### Find place
+
+#### Basic example
+
+```php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$apiKey = '<YOUR_API_KEY>';
+$httpClient = new \Http\Client\Curl\Client();
+$requestFactory = new \Zend\Diactoros\RequestFactory();
+
+$client = \GPlacesPhp\ApiClient\Client::create(
+    $apiKey,
+    $httpClient,
+    $requestFactory
+);
+
+$findPlace = $client->findPlace('Warszawa, Polska'); // Warsaw
+
+var_dump($findPlace);
 
 ```
 

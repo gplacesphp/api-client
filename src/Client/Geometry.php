@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace GPlacesPhp\ApiClient\Client\PlaceDetails;
+namespace GPlacesPhp\ApiClient\Client;
 
-use GPlacesPhp\ApiClient\Client\PlaceDetails\Geometry\Location;
-use GPlacesPhp\ApiClient\Client\PlaceDetails\Geometry\Viewport;
+use GPlacesPhp\ApiClient\Client\Geometry\Location;
+use GPlacesPhp\ApiClient\Client\Geometry\Viewport;
 
 final class Geometry
 {
