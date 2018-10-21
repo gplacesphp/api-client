@@ -104,18 +104,33 @@ final class Client implements ClientInterface
             $inputType,
             $optionalParameters ?? OptionalParameters::fromArray([])
         );
-        $request = $this->requestFactory
-            ->createRequest('GET', $url->toString());
-        $response = $this->httpClient
-            ->sendRequest($request);
-        $responseData = $this->parseJsonResponse($response->getBody());
-        $responseStatus = $responseData['status'] ?? '';
 
-        if ('OK' !== $responseStatus) {
-            throw ApiException::create($responseStatus, $responseData['error_message'] ?? '');
+        $isCached = $this->cache
+            ->has($url->toHash());
+        $findPlaceData = null;
+
+        if (!$isCached) {
+            $request = $this->requestFactory
+                ->createRequest('GET', $url->toString());
+            $response = $this->httpClient
+                ->sendRequest($request);
+            $responseData = $this->parseJsonResponse($response->getBody());
+            $responseStatus = $responseData['status'] ?? '';
+
+            if ('OK' !== $responseStatus) {
+                throw ApiException::create($responseStatus, $responseData['error_message'] ?? '');
+            }
+
+            $findPlaceData = $responseData['candidates'] ?? [];
+
+            $this->cache
+                ->set($url->toHash(), $findPlaceData);
+        } else {
+            $findPlaceData = $this->cache
+                ->get($url->toHash());
         }
 
-        return FindPlace::fromArray($responseData['candidates'] ?? []);
+        return FindPlace::fromArray($findPlaceData);
     }
 
     private function parseJsonResponse(StreamInterface $stream): array

@@ -73,6 +73,29 @@ final class ClientTest extends TestCase
         $this->assertSame('140 George St, The Rocks NSW 2000, Australia', $firstCandidate->formattedAddress());
     }
 
+    /** @test */
+    public function find_place_fetched_form_cache_if_cached(): void
+    {
+        $fixtureLoader = new FixtureLoader();
+        $candidatesData = $fixtureLoader->getJson('find-place')['candidates'] ?? [];
+        $cacheMock = new CacheSpy($candidatesData);
+        $response = ResponseMock::withContent('[]');
+
+        $client = Client::create(
+            'some-api-key',
+            $this->createDummyClient($response),
+            $this->createDummyRequestFactory(),
+            $cacheMock
+        );
+        $findPlace = $client->findPlace('some-place-id');
+        $candidates = $findPlace->candidates();
+
+        $this->assertCount(1, $candidates);
+        $firstCandidate = \array_values($candidates)[0];
+        $this->assertSame('Museum of Contemporary Art Australia', $firstCandidate->name());
+        $this->assertSame('140 George St, The Rocks NSW 2000, Australia', $firstCandidate->formattedAddress());
+    }
+
     private function createDummyClient(ResponseInterface $response): HttpClient
     {
         return new class($response) implements HttpClient {
