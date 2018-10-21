@@ -8,10 +8,12 @@ use GPlacesPhp\ApiClient\Client;
 use GPlacesPhp\ApiClient\Exception\ClientException;
 use GPlacesPhp\ApiClient\Tests\TestCase\Cache\CacheSpy;
 use GPlacesPhp\ApiClient\Tests\TestCase\FixtureLoader\FixtureLoader;
+use GPlacesPhp\ApiClient\Tests\TestCase\Psr\Http\ResponseMock;
 use Http\Client\HttpClient;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
 
@@ -22,10 +24,11 @@ final class ClientTest extends TestCase
     {
         $this->expectException(ClientException::class);
         $this->expectExceptionMessage('Argument "apiKey" cannot be empty string.');
+        $response = ResponseMock::withContent('[]');
 
         Client::create(
             '',
-            $this->createDummyClient(),
+            $this->createDummyClient($response),
             $this->createDummyRequestFactory()
         );
     }
@@ -36,10 +39,11 @@ final class ClientTest extends TestCase
         $fixtureLoader = new FixtureLoader();
         $detailsData = $fixtureLoader->getJson('details-response')['result'] ?? [];
         $cacheMock = new CacheSpy($detailsData);
+        $response = ResponseMock::withContent('[]');
 
         $client = Client::create(
             'some-api-key',
-            $this->createDummyClient(),
+            $this->createDummyClient($response),
             $this->createDummyRequestFactory(),
             $cacheMock
         );
@@ -48,14 +52,44 @@ final class ClientTest extends TestCase
         $this->assertSame(1, $cacheMock->getCall);
     }
 
-    private function createDummyClient(): HttpClient
+    /** @test */
+    public function find_place_fetch_data_by_http(): void
     {
-        return new class() implements HttpClient {
+        $fixtureLoader = new FixtureLoader();
+        $detailsData = $fixtureLoader->getJson('find-place') ?? [];
+        $response = ResponseMock::withContent(\json_encode($detailsData) ?: '');
+
+        $client = Client::create(
+            'some-api-key',
+            $this->createDummyClient($response),
+            $this->createDummyRequestFactory()
+        );
+        $findPlace = $client->findPlace('some-place-id');
+        $candidates = $findPlace->candidates();
+
+        $this->assertCount(1, $candidates);
+        $firstCandidate = \array_values($candidates)[0];
+        $this->assertSame('Museum of Contemporary Art Australia', $firstCandidate->name());
+        $this->assertSame('140 George St, The Rocks NSW 2000, Australia', $firstCandidate->formattedAddress());
+    }
+
+    private function createDummyClient(ResponseInterface $response): HttpClient
+    {
+        return new class($response) implements HttpClient {
+            /** @var ResponseInterface */
+            private $response;
+
+            public function __construct(ResponseInterface $response)
+            {
+                $this->response = $response;
+            }
+
             /**
              * {@inheritdoc}
              */
             public function sendRequest(RequestInterface $request)
             {
+                return $this->response;
             }
         };
     }

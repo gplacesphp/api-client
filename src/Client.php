@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace GPlacesPhp\ApiClient;
 
 use GPlacesPhp\ApiClient\Cache\NullCache;
+use GPlacesPhp\ApiClient\Client\FindPlace;
+use GPlacesPhp\ApiClient\Client\FindPlace\OptionalParameters;
 use GPlacesPhp\ApiClient\Client\PlaceDetails;
 use GPlacesPhp\ApiClient\Client\Url;
 use GPlacesPhp\ApiClient\Exception\ApiException;
@@ -89,6 +91,31 @@ final class Client implements ClientInterface
         }
 
         return PlaceDetails::fromArray($placeDetailsData);
+    }
+
+    public function findPlace(
+        string $input,
+        string $inputType = self::INPUT_TYPE_TEXT,
+        OptionalParameters $optionalParameters = null
+    ): FindPlace {
+        $url = Url::findPlace(
+            $this->key,
+            $input,
+            $inputType,
+            $optionalParameters ?? OptionalParameters::fromArray([])
+        );
+        $request = $this->requestFactory
+            ->createRequest('GET', $url->toString());
+        $response = $this->httpClient
+            ->sendRequest($request);
+        $responseData = $this->parseJsonResponse($response->getBody());
+        $responseStatus = $responseData['status'] ?? '';
+
+        if ('OK' !== $responseStatus) {
+            throw ApiException::create($responseStatus, $responseData['error_message'] ?? '');
+        }
+
+        return FindPlace::fromArray($responseData['candidates'] ?? []);
     }
 
     private function parseJsonResponse(StreamInterface $stream): array
