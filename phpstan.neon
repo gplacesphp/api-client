@@ -2,3 +2,7 @@ parameters:
     excludes_analyse:
         - src/Cache/NullCache.php
         - tests/TestCase/Cache/CacheSpy.php
+
+includes:
+    - vendor-bin/dev/vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor-bin/dev/vendor/phpstan/phpstan-phpunit/rules.neon
