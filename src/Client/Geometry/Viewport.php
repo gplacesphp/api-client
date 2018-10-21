@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GPlacesPhp\ApiClient\Client\PlaceDetails\Geometry;
+namespace GPlacesPhp\ApiClient\Client\Geometry;
 
 final class Viewport
 {

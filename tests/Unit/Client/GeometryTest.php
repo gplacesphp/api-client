@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace GPlacesPhp\ApiClient\Tests\Unit\Client\PlaceDetails;
+namespace GPlacesPhp\ApiClient\Tests\Unit\Client;
 
-use GPlacesPhp\ApiClient\Client\PlaceDetails\Geometry;
+use GPlacesPhp\ApiClient\Client\Geometry;
 use GPlacesPhp\ApiClient\Tests\TestCase\Mother\LocationMother;
 use PHPUnit\Framework\TestCase;
 

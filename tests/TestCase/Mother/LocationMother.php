@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GPlacesPhp\ApiClient\Tests\TestCase\Mother;
 
-use GPlacesPhp\ApiClient\Client\PlaceDetails\Geometry\Location;
+use GPlacesPhp\ApiClient\Client\Geometry\Location;
 
 final class LocationMother
 {

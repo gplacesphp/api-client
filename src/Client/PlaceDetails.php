@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace GPlacesPhp\ApiClient\Client;
 
 use GPlacesPhp\ApiClient\Client\PlaceDetails\AddressComponents;
-use GPlacesPhp\ApiClient\Client\PlaceDetails\Geometry;
 use GPlacesPhp\ApiClient\Client\PlaceDetails\Reviews;
 
 final class PlaceDetails
