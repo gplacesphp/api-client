@@ -95,7 +95,13 @@ Things to do before stable `v1` release:
 - [x] Place Details
 - [x] Caching Place Details
 - [ ] Places Search
+    - [x] Find Place
+    - [ ] Nearby Search
+    - [ ] Text Search
 - [ ] Caching Places Search
+    - [x] Find Place
+    - [ ] Nearby Search
+    - [ ] Text Search
 - [ ] Place Photos
 - [ ] Caching Place Photos
 - [ ] Use `PSR-18` instead of `HTTPlug`
