@@ -104,7 +104,7 @@ Things to do before stable `v1` release:
     - [ ] Text Search
 - [ ] Place Photos
 - [ ] Caching Place Photos
-- [ ] Use `PSR-18` instead of `HTTPlug`
+- [x] Use `PSR-18` instead of `HTTPlug`
 
 ## License
 This package is free software distributed under the terms of the MIT license.

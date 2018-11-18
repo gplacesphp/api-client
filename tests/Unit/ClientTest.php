@@ -9,8 +9,8 @@ use GPlacesPhp\ApiClient\Exception\ClientException;
 use GPlacesPhp\ApiClient\Tests\TestCase\Cache\CacheSpy;
 use GPlacesPhp\ApiClient\Tests\TestCase\FixtureLoader\FixtureLoader;
 use GPlacesPhp\ApiClient\Tests\TestCase\Psr\Http\ResponseMock;
-use Http\Client\HttpClient;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Client\ClientInterface as HttpClient;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -107,10 +107,8 @@ final class ClientTest extends TestCase
                 $this->response = $response;
             }
 
-            /**
-             * {@inheritdoc}
-             */
-            public function sendRequest(RequestInterface $request)
+            /** {@inheritdoc} */
+            public function sendRequest(RequestInterface $request): ResponseInterface
             {
                 return $this->response;
             }
