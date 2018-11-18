@@ -11,7 +11,7 @@ use GPlacesPhp\ApiClient\Client\PlaceDetails;
 use GPlacesPhp\ApiClient\Client\Url;
 use GPlacesPhp\ApiClient\Exception\ApiException;
 use GPlacesPhp\ApiClient\Exception\ClientException;
-use Http\Client\HttpClient;
+use Psr\Http\Client\ClientInterface as HttpClient;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\SimpleCache\CacheInterface;
