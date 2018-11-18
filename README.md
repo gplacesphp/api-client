@@ -25,13 +25,16 @@ composer require gplacesphp/api-client
 
 ## Usage
 
-This examples uses `php-http/curl-client` as a http-client
+This examples uses `php-http/guzzle6-adapter` as a PSR-18 implementation
 and `zendframework/zend-diactoros` as a PSR-7/PSR-17 implementation.
-Any other PSR-7/PSR-17 implementations are supported.
+Any other PSR-7/PSR-17/PSR-18 implementations are supported.
 If you don't have them installed you will need to run:
 
 ```bash
-composer require php-http/curl-client zendframework/zend-diactoros
+composer require \
+    guzzlehttp/guzzle \
+    php-http/guzzle6-adapter \
+    zendframework/zend-diactoros
 ```
 
 Remember to replace `<YOUR_API_KEY>` with you key. 
@@ -48,7 +51,8 @@ More usage examples are in `examples` directory.
 require_once __DIR__ . '/vendor/autoload.php';
 
 $apiKey = '<YOUR_API_KEY>';
-$httpClient = new \Http\Client\Curl\Client();
+$guzzle = new \GuzzleHttp\Client();
+$httpClient = new \Http\Adapter\Guzzle6\Client($guzzle);
 $requestFactory = new \Zend\Diactoros\RequestFactory();
 
 $client = \GPlacesPhp\ApiClient\Client::create(
@@ -73,7 +77,8 @@ var_dump($placeDetails);
 require_once __DIR__ . '/vendor/autoload.php';
 
 $apiKey = '<YOUR_API_KEY>';
-$httpClient = new \Http\Client\Curl\Client();
+$guzzle = new \GuzzleHttp\Client();
+$httpClient = new \Http\Adapter\Guzzle6\Client($guzzle);
 $requestFactory = new \Zend\Diactoros\RequestFactory();
 
 $client = \GPlacesPhp\ApiClient\Client::create(
