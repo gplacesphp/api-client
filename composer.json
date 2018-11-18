@@ -54,6 +54,9 @@
         "app:checks": [
             "@cs-fixer:analyze",
             "@phpstan:analyze"
+        ],
+        "app:fix": [
+            "@cs-fixer:analyze"
         ]
     }
 }
