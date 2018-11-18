@@ -6,12 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- [#6] Use `PSR-18` instead of `HTTPlug`
+
 ## v0.2.0 - 2018-10-21
 
 ### Added
 
-- "Find Place" endpoint support, PR [#3]
-- Cache to "Find Place" requests, PR [#4]
+- [#3] "Find Place" endpoint support 
+- [#4] Cache to "Find Place" requests 
 
 ## v0.1.0 - 2018-10-20
 
@@ -21,3 +25,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [#3]: https://github.com/gplacesphp/api-client/pull/3
 [#4]: https://github.com/gplacesphp/api-client/pull/4
+[#6]: https://github.com/gplacesphp/api-client/pull/6
