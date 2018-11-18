@@ -10,11 +10,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- "Find Place" endpoint support, PR [#3](https://github.com/gplacesphp/api-client/pull/3)
-- Cache to "Find Place" requests, PR [#4](https://github.com/gplacesphp/api-client/pull/3)
+- "Find Place" endpoint support, PR [#3]
+- Cache to "Find Place" requests, PR [#4]
 
 ## v0.1.0 - 2018-10-20
 
 ### Added
 
 - Initial release 🎉
+
+[#3]: https://github.com/gplacesphp/api-client/pull/3
+[#4]: https://github.com/gplacesphp/api-client/pull/4
