@@ -6,13 +6,9 @@ clone_folder: c:\projects\crunz
 environment:
     matrix:
         - dependencies: low
-          php_ver_target: 7.1
+          php_ver_target: 7.1.32
         - dependencies: high
-          php_ver_target: 7.1
-        - dependencies: low
-          php_ver_target: 7.2
-        - dependencies: high
-          php_ver_target: 7.2
+          php_ver_target: 7.1.32
 
 init:
     - SET PATH=C:\Program Files\OpenSSL;c:\tools\php;%PATH%
