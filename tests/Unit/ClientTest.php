@@ -17,10 +17,12 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
 
+/**
+ * @internal
+ */
 final class ClientTest extends TestCase
 {
-    /** @test */
-    public function client_requires_api_key(): void
+    public function test_client_requires_api_key(): void
     {
         $this->expectException(ClientException::class);
         $this->expectExceptionMessage('Argument "apiKey" cannot be empty string.');
@@ -29,12 +31,11 @@ final class ClientTest extends TestCase
         Client::create(
             '',
             $this->createDummyClient($response),
-            $this->createDummyRequestFactory()
+            $this->createDummyRequestFactory(),
         );
     }
 
-    /** @test */
-    public function details_are_read_from_cache_if_cached(): void
+    public function test_details_are_read_from_cache_if_cached(): void
     {
         $fixtureLoader = new FixtureLoader();
         $detailsData = $fixtureLoader->getJson('details-response')['result'] ?? [];
@@ -45,15 +46,14 @@ final class ClientTest extends TestCase
             'some-api-key',
             $this->createDummyClient($response),
             $this->createDummyRequestFactory(),
-            $cacheMock
+            $cacheMock,
         );
         $client->placeDetails('some-place-id');
 
         $this->assertSame(1, $cacheMock->getCall);
     }
 
-    /** @test */
-    public function find_place_fetch_data_by_http(): void
+    public function test_find_place_fetch_data_by_http(): void
     {
         $fixtureLoader = new FixtureLoader();
         $detailsData = $fixtureLoader->getJson('find-place') ?? [];
@@ -62,7 +62,7 @@ final class ClientTest extends TestCase
         $client = Client::create(
             'some-api-key',
             $this->createDummyClient($response),
-            $this->createDummyRequestFactory()
+            $this->createDummyRequestFactory(),
         );
         $findPlace = $client->findPlace('some-place-id');
         $candidates = $findPlace->candidates();
@@ -73,8 +73,7 @@ final class ClientTest extends TestCase
         $this->assertSame('140 George St, The Rocks NSW 2000, Australia', $firstCandidate->formattedAddress());
     }
 
-    /** @test */
-    public function find_place_fetched_form_cache_if_cached(): void
+    public function test_find_place_fetched_form_cache_if_cached(): void
     {
         $fixtureLoader = new FixtureLoader();
         $candidatesData = $fixtureLoader->getJson('find-place')['candidates'] ?? [];
@@ -85,7 +84,7 @@ final class ClientTest extends TestCase
             'some-api-key',
             $this->createDummyClient($response),
             $this->createDummyRequestFactory(),
-            $cacheMock
+            $cacheMock,
         );
         $findPlace = $client->findPlace('some-place-id');
         $candidates = $findPlace->candidates();
@@ -140,87 +139,87 @@ final class ClientTest extends TestCase
     {
         return new class() implements RequestInterface {
             /** {@inheritdoc} */
-            public function getProtocolVersion()
+            public function getProtocolVersion(): void
             {
             }
 
             /** {@inheritdoc} */
-            public function withProtocolVersion($version)
+            public function withProtocolVersion($version): void
             {
             }
 
             /** {@inheritdoc} */
-            public function getHeaders()
+            public function getHeaders(): void
             {
             }
 
             /** {@inheritdoc} */
-            public function hasHeader($name)
+            public function hasHeader($name): void
             {
             }
 
             /** {@inheritdoc} */
-            public function getHeader($name)
+            public function getHeader($name): void
             {
             }
 
             /** {@inheritdoc} */
-            public function getHeaderLine($name)
+            public function getHeaderLine($name): void
             {
             }
 
             /** {@inheritdoc} */
-            public function withHeader($name, $value)
+            public function withHeader($name, $value): void
             {
             }
 
             /** {@inheritdoc} */
-            public function withAddedHeader($name, $value)
+            public function withAddedHeader($name, $value): void
             {
             }
 
             /** {@inheritdoc} */
-            public function withoutHeader($name)
+            public function withoutHeader($name): void
             {
             }
 
             /** {@inheritdoc} */
-            public function getBody()
+            public function getBody(): void
             {
             }
 
             /** {@inheritdoc} */
-            public function withBody(StreamInterface $body)
+            public function withBody(StreamInterface $body): void
             {
             }
 
             /** {@inheritdoc} */
-            public function getRequestTarget()
+            public function getRequestTarget(): void
             {
             }
 
             /** {@inheritdoc} */
-            public function withRequestTarget($requestTarget)
+            public function withRequestTarget($requestTarget): void
             {
             }
 
             /** {@inheritdoc} */
-            public function getMethod()
+            public function getMethod(): void
             {
             }
 
             /** {@inheritdoc} */
-            public function withMethod($method)
+            public function withMethod($method): void
             {
             }
 
             /** {@inheritdoc} */
-            public function getUri()
+            public function getUri(): void
             {
             }
 
             /** {@inheritdoc} */
-            public function withUri(UriInterface $uri, $preserveHost = false)
+            public function withUri(UriInterface $uri, $preserveHost = false): void
             {
             }
         };

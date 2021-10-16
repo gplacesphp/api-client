@@ -25,47 +25,47 @@ final class ResponseMock implements ResponseInterface
     }
 
     /** {@inheritdoc} */
-    public function getProtocolVersion()
+    public function getProtocolVersion(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function withProtocolVersion($version)
+    public function withProtocolVersion($version): void
     {
     }
 
     /** {@inheritdoc} */
-    public function getHeaders()
+    public function getHeaders(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function hasHeader($name)
+    public function hasHeader($name): void
     {
     }
 
     /** {@inheritdoc} */
-    public function getHeader($name)
+    public function getHeader($name): void
     {
     }
 
     /** {@inheritdoc} */
-    public function getHeaderLine($name)
+    public function getHeaderLine($name): void
     {
     }
 
     /** {@inheritdoc} */
-    public function withHeader($name, $value)
+    public function withHeader($name, $value): void
     {
     }
 
     /** {@inheritdoc} */
-    public function withAddedHeader($name, $value)
+    public function withAddedHeader($name, $value): void
     {
     }
 
     /** {@inheritdoc} */
-    public function withoutHeader($name)
+    public function withoutHeader($name): void
     {
     }
 
@@ -76,22 +76,22 @@ final class ResponseMock implements ResponseInterface
     }
 
     /** {@inheritdoc} */
-    public function withBody(StreamInterface $body)
+    public function withBody(StreamInterface $body): void
     {
     }
 
     /** {@inheritdoc} */
-    public function getStatusCode()
+    public function getStatusCode(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function withStatus($code, $reasonPhrase = '')
+    public function withStatus($code, $reasonPhrase = ''): void
     {
     }
 
     /** {@inheritdoc} */
-    public function getReasonPhrase()
+    public function getReasonPhrase(): void
     {
     }
 }

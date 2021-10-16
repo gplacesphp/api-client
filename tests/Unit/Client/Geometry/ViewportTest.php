@@ -8,16 +8,18 @@ use GPlacesPhp\ApiClient\Client\Geometry\Viewport;
 use GPlacesPhp\ApiClient\Tests\TestCase\Mother\LocationMother;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ */
 final class ViewportTest extends TestCase
 {
-    /** @test */
-    public function viewport_can_be_created_from_array(): void
+    public function test_viewport_can_be_created_from_array(): void
     {
         $viewport = Viewport::fromArray(
             [
                 'northeast' => LocationMother::withValues(12.145151, 23.123412)->toArray(),
                 'southwest' => LocationMother::withValues(34.522541, 45.803471)->toArray(),
-            ]
+            ],
         );
 
         $northEast = $viewport->northeast();

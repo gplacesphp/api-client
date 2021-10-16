@@ -8,10 +8,12 @@ use GPlacesPhp\ApiClient\Client\Geometry;
 use GPlacesPhp\ApiClient\Tests\TestCase\Mother\LocationMother;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ */
 final class GeometryTest extends TestCase
 {
-    /** @test */
-    public function geometry_can_be_created_from_array(): void
+    public function test_geometry_can_be_created_from_array(): void
     {
         $location = LocationMother::random();
         $viewportSouthWest = LocationMother::random();
@@ -24,7 +26,7 @@ final class GeometryTest extends TestCase
                     'northeast' => $viewportNorthEast->toArray(),
                     'southwest' => $viewportSouthWest->toArray(),
                 ],
-            ]
+            ],
         );
 
         $viewport = $geometry->viewport();

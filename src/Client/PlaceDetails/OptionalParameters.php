@@ -6,11 +6,11 @@ namespace GPlacesPhp\ApiClient\Client\PlaceDetails;
 
 final class OptionalParameters
 {
-    /** @var null|string */
+    /** @var string|null */
     private $language;
-    /** @var null|string */
+    /** @var string|null */
     private $region;
-    /** @var null|string */
+    /** @var string|null */
     private $sessionToken;
     /** @var array */
     private $fields;

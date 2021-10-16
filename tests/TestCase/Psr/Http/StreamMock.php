@@ -23,72 +23,72 @@ final class StreamMock implements StreamInterface
     }
 
     /** {@inheritdoc} */
-    public function close()
+    public function close(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function detach()
+    public function detach(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function getSize()
+    public function getSize(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function tell()
+    public function tell(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function eof()
+    public function eof(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function isSeekable()
+    public function isSeekable(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek($offset, $whence = \SEEK_SET): void
     {
     }
 
     /** {@inheritdoc} */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function isWritable()
+    public function isWritable(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function write($string)
+    public function write($string): void
     {
     }
 
     /** {@inheritdoc} */
-    public function isReadable()
+    public function isReadable(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function read($length)
+    public function read($length): void
     {
     }
 
     /** {@inheritdoc} */
-    public function getContents()
+    public function getContents(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function getMetadata($key = null)
+    public function getMetadata($key = null): void
     {
     }
 }

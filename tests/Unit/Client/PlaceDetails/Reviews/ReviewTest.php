@@ -7,10 +7,12 @@ namespace GPlacesPhp\ApiClient\Tests\Unit\Client\PlaceDetails\Reviews;
 use GPlacesPhp\ApiClient\Client\PlaceDetails\Reviews\Review;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ */
 final class ReviewTest extends TestCase
 {
-    /** @test */
-    public function review_can_be_created_from_array(): void
+    public function test_review_can_be_created_from_array(): void
     {
         $review = Review::fromArray(
             [
@@ -22,7 +24,7 @@ final class ReviewTest extends TestCase
                 'relative_time_description' => 'a month ago',
                 'text' => 'Awesome offices. Great facilities, location and views. Staff are great hosts',
                 'time' => 1491144016,
-            ]
+            ],
         );
 
         $this->assertSame($review->authorName(), 'Robert Ardill');
@@ -35,8 +37,7 @@ final class ReviewTest extends TestCase
         $this->assertSame($review->time(), 1491144016);
     }
 
-    /** @test */
-    public function review_can_be_converted_to_array(): void
+    public function test_review_can_be_converted_to_array(): void
     {
         $reviewData = [
             'author_name' => 'Robert Ardill',
