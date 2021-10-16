@@ -1,7 +1,7 @@
 {
     "name": "gplacesphp/api-client",
-    "description": "Modern Google Places API client for PHP",
     "type": "library",
+    "description": "Modern Google Places API client for PHP",
     "keywords": [
         "google places api",
         "places api"
@@ -15,9 +15,6 @@
             "role": "Developer"
         }
     ],
-    "support": {
-        "issues": "https://github.com/gplacesphp/api-client/issues"
-    },
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-json": "*",
@@ -35,6 +32,9 @@
         "symfony/phpunit-bridge": "^5.3",
         "symfony/var-dumper": "^5.3"
     },
+    "config": {
+        "sort-packages": true
+    },
     "autoload": {
         "psr-4": {
             "GPlacesPhp\\ApiClient\\": "src/"
@@ -47,19 +47,19 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
-    "config": {
-        "sort-packages": true
-    },
     "scripts": {
-        "cs-fixer:fix": "@php vendor/bin/php-cs-fixer fix --diff -v --ansi",
-        "cs-fixer:analyze": "@php vendor/bin/php-cs-fixer fix --diff --dry-run -v",
-        "phpstan:analyze": "vendor/bin/phpstan analyze -c phpstan.neon --level=7 --no-progress src tests",
         "app:checks": [
             "@cs-fixer:analyze",
             "@phpstan:analyze"
         ],
         "app:fix": [
             "@cs-fixer:analyze"
-        ]
+        ],
+        "cs-fixer:analyze": "@php vendor/bin/php-cs-fixer fix --diff --dry-run -v",
+        "cs-fixer:fix": "@php vendor/bin/php-cs-fixer fix --diff -v --ansi",
+        "phpstan:analyze": "vendor/bin/phpstan analyze -c phpstan.neon --level=7 --no-progress src tests"
+    },
+    "support": {
+        "issues": "https://github.com/gplacesphp/api-client/issues"
     }
 }
