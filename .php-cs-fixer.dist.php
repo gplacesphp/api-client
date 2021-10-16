@@ -21,7 +21,11 @@ return (new PhpCsFixer\Config())
             'linebreak_after_opening_tag' => true,
             'no_useless_else' => true,
             'no_useless_return' => true,
-            'native_function_invocation' => true,
+            'native_function_invocation' => [
+                'include' => [
+                    '@all',
+                ],
+            ],
             'ordered_class_elements' => true,
             'ordered_imports' => true,
             'strict_comparison' => false,
