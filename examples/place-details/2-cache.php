@@ -19,4 +19,4 @@ $client->placeDetails('ChIJAZ-GmmbMHkcR_NPqiCq-8HI'); //Warsaw
 // Data will be fetched from cache
 $placeDetails = $client->placeDetails('ChIJAZ-GmmbMHkcR_NPqiCq-8HI'); // Warsaw
 
-dump($placeDetails);
+\dump($placeDetails);

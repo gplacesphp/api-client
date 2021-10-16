@@ -15,4 +15,4 @@ $client = \GPlacesPhp\ApiClient\Client::create(
 
 $placeDetails = $client->placeDetails('ChIJAZ-GmmbMHkcR_NPqiCq-8HI'); // Warsaw
 
-dump($placeDetails);
+\dump($placeDetails);

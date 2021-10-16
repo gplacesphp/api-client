@@ -22,7 +22,7 @@ final class LocationMother
             [
                 'lat' => $lat,
                 'lng' => $lng,
-            ]
+            ],
         );
     }
 }

@@ -7,9 +7,9 @@ namespace GPlacesPhp\ApiClient\Tests\TestCase\Mother;
 trait RandomElementTrait
 {
     /**
-     * @return mixed
-     *
      * @throws \Exception on empty array passed
+     *
+     * @return mixed
      */
     private static function randomElement(array $data)
     {

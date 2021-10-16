@@ -7,15 +7,17 @@ namespace GPlacesPhp\ApiClient\Tests\Unit\Client\PlaceDetails\AddressComponents;
 use GPlacesPhp\ApiClient\Tests\TestCase\Mother\ComponentMother;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ */
 final class ComponentTest extends TestCase
 {
-    /** @test */
-    public function component_can_be_created_from_array(): void
+    public function test_component_can_be_created_from_array(): void
     {
         $component = ComponentMother::withData(
             'Poland',
             'PL',
-            ...['country', 'political']
+            ...['country', 'political'],
         );
 
         $this->assertSame('PL', $component->shortName());
@@ -23,13 +25,12 @@ final class ComponentTest extends TestCase
         $this->assertSame(['country', 'political'], $component->types());
     }
 
-    /** @test */
-    public function component_can_be_represented_as_array(): void
+    public function test_component_can_be_represented_as_array(): void
     {
         $component = ComponentMother::withData(
             'Poland',
             'PL',
-            ...['country', 'political']
+            ...['country', 'political'],
         );
 
         $this->assertSame(
@@ -38,7 +39,7 @@ final class ComponentTest extends TestCase
                 'short_name' => 'PL',
                 'types' => ['country', 'political'],
             ],
-            $component->toArray()
+            $component->toArray(),
         );
     }
 }

@@ -26,32 +26,32 @@ final class CacheSpy implements CacheInterface
     }
 
     /** {@inheritdoc} */
-    public function set($key, $value, $ttl = null)
+    public function set($key, $value, $ttl = null): void
     {
     }
 
     /** {@inheritdoc} */
-    public function delete($key)
+    public function delete($key): void
     {
     }
 
     /** {@inheritdoc} */
-    public function clear()
+    public function clear(): void
     {
     }
 
     /** {@inheritdoc} */
-    public function getMultiple($keys, $default = null)
+    public function getMultiple($keys, $default = null): void
     {
     }
 
     /** {@inheritdoc} */
-    public function setMultiple($values, $ttl = null)
+    public function setMultiple($values, $ttl = null): void
     {
     }
 
     /** {@inheritdoc} */
-    public function deleteMultiple($keys)
+    public function deleteMultiple($keys): void
     {
     }
 

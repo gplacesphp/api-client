@@ -11,10 +11,12 @@ use GPlacesPhp\ApiClient\ClientInterface;
 use GPlacesPhp\ApiClient\Exception\UrlException;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ */
 final class UrlTest extends TestCase
 {
-    /** @test */
-    public function details_api_key_can_not_be_empty(): void
+    public function test_details_api_key_can_not_be_empty(): void
     {
         $this->expectException(UrlException::class);
         $this->expectExceptionMessage('Argument "apiKey" is required and cannot be empty.');
@@ -22,12 +24,11 @@ final class UrlTest extends TestCase
         Url::details(
             '',
             'place-id',
-            OptionalParameters::fromArray([])
+            OptionalParameters::fromArray([]),
         );
     }
 
-    /** @test */
-    public function details_place_id_can_not_be_empty(): void
+    public function test_details_place_id_can_not_be_empty(): void
     {
         $this->expectException(UrlException::class);
         $this->expectExceptionMessage('Argument "placeId" is required and cannot be empty.');
@@ -35,12 +36,11 @@ final class UrlTest extends TestCase
         Url::details(
             'some-key',
             '',
-            OptionalParameters::fromArray([])
+            OptionalParameters::fromArray([]),
         );
     }
 
-    /** @test */
-    public function details_string_representation_is_valid(): void
+    public function test_details_string_representation_is_valid(): void
     {
         $apiKey = 'some-api-key';
         $placeId = 'some-place-id';
@@ -48,20 +48,19 @@ final class UrlTest extends TestCase
         $url = Url::details(
             $apiKey,
             $placeId,
-            OptionalParameters::fromArray([])
+            OptionalParameters::fromArray([]),
         );
 
         $this->assertSame(
             "https://maps.googleapis.com/maps/api/place/details/json?key={$apiKey}&placeid={$placeId}",
-            $url->toString()
+            $url->toString(),
         );
     }
 
     /**
-     * @test
      * @dataProvider optionalParameterProvider
      */
-    public function details_append_optional_parameters(OptionalParameters $parameters): void
+    public function test_details_append_optional_parameters(OptionalParameters $parameters): void
     {
         $apiKey = 'some-api-key';
         $placeId = 'some-place-id';
@@ -73,14 +72,13 @@ final class UrlTest extends TestCase
         $url = Url::details(
             $apiKey,
             $placeId,
-            $parameters
+            $parameters,
         );
 
         $this->assertSame($expectedUrl, $url->toString());
     }
 
-    /** @test */
-    public function hash_is_correct_md5_hash(): void
+    public function test_hash_is_correct_md5_hash(): void
     {
         $apiKey = 'some-api-key';
         $placeId = 'some-place-id';
@@ -88,14 +86,13 @@ final class UrlTest extends TestCase
         $url = Url::details(
             $apiKey,
             $placeId,
-            OptionalParameters::fromArray([])
+            OptionalParameters::fromArray([]),
         );
 
         $this->assertSame('9a966127bfeee5cd729118e7e39be405', $url->toHash());
     }
 
-    /** @test */
-    public function find_place_api_key_can_not_be_empty(): void
+    public function test_find_place_api_key_can_not_be_empty(): void
     {
         $this->expectException(UrlException::class);
         $this->expectExceptionMessage('Argument "apiKey" is required and cannot be empty.');
@@ -104,12 +101,11 @@ final class UrlTest extends TestCase
             '',
             '+48500600700',
             ClientInterface::INPUT_TYPE_PHONE,
-            FindPlaceOptionalParameters::fromArray([])
+            FindPlaceOptionalParameters::fromArray([]),
         );
     }
 
-    /** @test */
-    public function find_place_input_can_not_be_empty(): void
+    public function test_find_place_input_can_not_be_empty(): void
     {
         $this->expectException(UrlException::class);
         $this->expectExceptionMessage('Argument "input" is required and cannot be empty.');
@@ -118,12 +114,11 @@ final class UrlTest extends TestCase
             'some-key',
             '',
             ClientInterface::INPUT_TYPE_PHONE,
-            FindPlaceOptionalParameters::fromArray([])
+            FindPlaceOptionalParameters::fromArray([]),
         );
     }
 
-    /** @test */
-    public function find_place_input_type_can_not_be_empty(): void
+    public function test_find_place_input_type_can_not_be_empty(): void
     {
         $this->expectException(UrlException::class);
         $this->expectExceptionMessage('Argument "inputType" is required and cannot be empty.');
@@ -132,28 +127,26 @@ final class UrlTest extends TestCase
             'some-key',
             'some input',
             '',
-            FindPlaceOptionalParameters::fromArray([])
+            FindPlaceOptionalParameters::fromArray([]),
         );
     }
 
-    /** @test */
-    public function find_place_input_type_must_be_supported_type(): void
+    public function test_find_place_input_type_must_be_supported_type(): void
     {
         $this->expectException(UrlException::class);
         $this->expectExceptionMessage(
-            "Input type 'wrong-type' is not supported, try one of these: 'textquery', 'phonenumber'."
+            "Input type 'wrong-type' is not supported, try one of these: 'textquery', 'phonenumber'.",
         );
 
         Url::findPlace(
             'some-key',
             'some input',
             'wrong-type',
-            FindPlaceOptionalParameters::fromArray([])
+            FindPlaceOptionalParameters::fromArray([]),
         );
     }
 
-    /** @test */
-    public function find_place_string_representation_is_valid(): void
+    public function test_find_place_string_representation_is_valid(): void
     {
         $apiKey = 'some-api-key';
         $input = 'some input';
@@ -163,26 +156,25 @@ final class UrlTest extends TestCase
             $apiKey,
             $input,
             $inputType,
-            FindPlaceOptionalParameters::fromArray([])
+            FindPlaceOptionalParameters::fromArray([]),
         );
         $params = \http_build_query(
             [
                 'key' => $apiKey,
                 'input' => $input,
                 'inputtype' => $inputType,
-            ]
+            ],
         );
         $this->assertSame(
             "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?{$params}",
-            $url->toString()
+            $url->toString(),
         );
     }
 
     /**
-     * @test
      * @dataProvider findPlaceOptionalParameterProvider
      */
-    public function find_place_append_optional_parameters(FindPlaceOptionalParameters $parameters): void
+    public function test_find_place_append_optional_parameters(FindPlaceOptionalParameters $parameters): void
     {
         $apiKey = 'some-api-key';
         $input = 'some input';
@@ -197,14 +189,13 @@ final class UrlTest extends TestCase
             $apiKey,
             $input,
             $inputType,
-            $parameters
+            $parameters,
         );
 
         $this->assertSame($expectedUrl, $url->toString());
     }
 
-    /** @test */
-    public function find_place_hash_is_correct_md5_hash(): void
+    public function test_find_place_hash_is_correct_md5_hash(): void
     {
         $apiKey = 'some-api-key';
         $input = 'some input';
@@ -214,7 +205,7 @@ final class UrlTest extends TestCase
             $apiKey,
             $input,
             $inputType,
-            FindPlaceOptionalParameters::fromArray([])
+            FindPlaceOptionalParameters::fromArray([]),
         );
 
         $this->assertSame('c47f12cc02098881b1a8ecbf56dc46dd', $url->toHash());
@@ -242,7 +233,7 @@ final class UrlTest extends TestCase
                         'opening_hours',
                         'price_level',
                     ],
-                ]
+                ],
             ),
         ];
     }
@@ -260,7 +251,7 @@ final class UrlTest extends TestCase
                         'opening_hours',
                         'price_level',
                     ],
-                ]
+                ],
             ),
         ];
     }

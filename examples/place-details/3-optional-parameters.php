@@ -22,4 +22,4 @@ $optionalParams = \GPlacesPhp\ApiClient\Client\PlaceDetails\OptionalParameters::
 
 $placeDetails = $client->placeDetails('ChIJAZ-GmmbMHkcR_NPqiCq-8HI', $optionalParams); // Warszawa
 
-dump($placeDetails);
+\dump($placeDetails);

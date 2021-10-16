@@ -8,10 +8,12 @@ use GPlacesPhp\ApiClient\Client\PlaceDetails\AddressComponents;
 use GPlacesPhp\ApiClient\Tests\TestCase\Mother\ComponentMother;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ */
 final class AddressComponentsTest extends TestCase
 {
-    /** @test */
-    public function components_can_be_created_from_array(): void
+    public function test_components_can_be_created_from_array(): void
     {
         $randomComponents = [
             ComponentMother::random(),
@@ -20,11 +22,11 @@ final class AddressComponentsTest extends TestCase
 
         $addressComponents = AddressComponents::fromArray(
             \array_map(
-                function (AddressComponents\Component $component): array {
+                static function (AddressComponents\Component $component): array {
                     return $component->toArray();
                 },
-                $randomComponents
-            )
+                $randomComponents,
+            ),
         );
 
         $components = $addressComponents->components();

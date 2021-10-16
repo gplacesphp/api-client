@@ -63,14 +63,14 @@ final class ComponentMother
     public static function withData(
         string $longName,
         string $shortName,
-        string ...$types
+        string ...$types,
     ): Component {
         return Component::fromArray(
             [
                 'long_name' => $longName,
                 'short_name' => $shortName,
                 'types' => $types,
-            ]
+            ],
         );
     }
 }

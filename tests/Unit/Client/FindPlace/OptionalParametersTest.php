@@ -7,10 +7,12 @@ namespace GPlacesPhp\ApiClient\Tests\Unit\Client\FindPlace;
 use GPlacesPhp\ApiClient\Client\FindPlace\OptionalParameters;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ */
 final class OptionalParametersTest extends TestCase
 {
-    /** @test */
-    public function parameters_can_be_constructed_from_array(): void
+    public function test_parameters_can_be_constructed_from_array(): void
     {
         $paramsArray = [
             'language' => 'pl',
@@ -26,12 +28,11 @@ final class OptionalParametersTest extends TestCase
                 'language' => 'pl',
                 'fields' => 'place_id,id',
             ],
-            $parameters->toArray()
+            $parameters->toArray(),
         );
     }
 
-    /** @test */
-    public function parameters_can_be_constructed_from_arguments(): void
+    public function test_parameters_can_be_constructed_from_arguments(): void
     {
         $parameters = OptionalParameters::fromArguments('en', ['geometry', 'icon']);
 
@@ -40,12 +41,11 @@ final class OptionalParametersTest extends TestCase
                 'language' => 'en',
                 'fields' => 'geometry,icon',
             ],
-            $parameters->toArray()
+            $parameters->toArray(),
         );
     }
 
-    /** @test */
-    public function empty_array_parameters_are_ignored(): void
+    public function test_empty_array_parameters_are_ignored(): void
     {
         $paramsArray = [
             'language' => '',
@@ -56,8 +56,7 @@ final class OptionalParametersTest extends TestCase
         $this->assertSame([], $parameters->toArray());
     }
 
-    /** @test */
-    public function empty_arguments_parameters_are_ignored(): void
+    public function test_empty_arguments_parameters_are_ignored(): void
     {
         $parameters = OptionalParameters::fromArguments('', []);
 

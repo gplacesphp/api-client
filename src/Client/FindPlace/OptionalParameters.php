@@ -6,7 +6,7 @@ namespace GPlacesPhp\ApiClient\Client\FindPlace;
 
 final class OptionalParameters
 {
-    /** @var null|string */
+    /** @var string|null */
     private $language;
     /** @var array */
     private $fields;

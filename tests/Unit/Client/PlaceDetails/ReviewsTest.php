@@ -8,10 +8,12 @@ use GPlacesPhp\ApiClient\Client\PlaceDetails\Reviews;
 use GPlacesPhp\ApiClient\Client\PlaceDetails\Reviews\Review;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ */
 final class ReviewsTest extends TestCase
 {
-    /** @test */
-    public function reviews_can_be_created_from_array(): void
+    public function test_reviews_can_be_created_from_array(): void
     {
         $review = Review::fromArray(
             [
@@ -23,7 +25,7 @@ final class ReviewsTest extends TestCase
                 'relative_time_description' => 'a month ago',
                 'text' => 'Awesome offices. Great facilities, location and views. Staff are great hosts',
                 'time' => 1491144016,
-            ]
+            ],
         );
 
         $reviews = Reviews::fromArray([$review->toArray()]);
