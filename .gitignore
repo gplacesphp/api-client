@@ -11,3 +11,4 @@ composer.phar
 var/
 .vagrant/
 .php_cs.cache
+/.phpunit.result.cache
