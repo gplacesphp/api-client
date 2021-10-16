@@ -49,10 +49,12 @@
     "prefer-stable": true,
     "scripts": {
         "app:checks": [
+            "@composer normalize --dry-run",
             "@cs-fixer:analyze",
             "@phpstan:analyze"
         ],
         "app:fix": [
+            "composer normalize",
             "@cs-fixer:analyze"
         ],
         "cs-fixer:analyze": "@php vendor/bin/php-cs-fixer fix --diff --dry-run -v",
