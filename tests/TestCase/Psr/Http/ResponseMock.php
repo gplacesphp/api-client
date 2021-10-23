@@ -25,73 +25,86 @@ final class ResponseMock implements ResponseInterface
     }
 
     /** {@inheritdoc} */
-    public function getProtocolVersion(): void
+    public function getProtocolVersion(): string
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function withProtocolVersion($version): void
+    public function withProtocolVersion($version): self
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function getHeaders(): void
+    public function getHeaders(): array
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function hasHeader($name): void
+    public function hasHeader($name): bool
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function getHeader($name): void
+    public function getHeader($name): array
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function getHeaderLine($name): void
+    public function getHeaderLine($name): string
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function withHeader($name, $value): void
+    public function withHeader($name, $value): self
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function withAddedHeader($name, $value): void
+    public function withAddedHeader($name, $value): self
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function withoutHeader($name): void
+    public function withoutHeader($name): self
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function getBody()
+    public function getBody(): StreamInterface
     {
         return $this->stream;
     }
 
     /** {@inheritdoc} */
-    public function withBody(StreamInterface $body): void
+    public function withBody(StreamInterface $body): self
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function getStatusCode(): void
+    public function getStatusCode(): int
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function withStatus($code, $reasonPhrase = ''): void
+    public function withStatus($code, $reasonPhrase = ''): self
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function getReasonPhrase(): void
+    public function getReasonPhrase(): string
     {
+        throw new \RuntimeException('Not implemented');
     }
 }

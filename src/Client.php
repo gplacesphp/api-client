@@ -133,6 +133,7 @@ final class Client implements ClientInterface
         return FindPlace::fromArray($findPlaceData);
     }
 
+    /** @return array<mixed,mixed> */
     private function parseJsonResponse(StreamInterface $stream): array
     {
         $data = \json_decode((string) $stream, true);

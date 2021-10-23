@@ -17,7 +17,7 @@ final class StreamMock implements StreamInterface
     }
 
     /** {@inheritdoc} */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->content;
     }
@@ -25,70 +25,84 @@ final class StreamMock implements StreamInterface
     /** {@inheritdoc} */
     public function close(): void
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function detach(): void
+    public function detach()
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function getSize(): void
+    public function getSize(): ?int
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function tell(): void
+    public function tell(): int
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function eof(): void
+    public function eof(): bool
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function isSeekable(): void
+    public function isSeekable(): bool
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
     public function seek($offset, $whence = \SEEK_SET): void
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
     public function rewind(): void
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function isWritable(): void
+    public function isWritable(): bool
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function write($string): void
+    public function write($string): int
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function isReadable(): void
+    public function isReadable(): bool
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function read($length): void
+    public function read($length): string
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
-    public function getContents(): void
+    public function getContents(): string
     {
+        throw new \RuntimeException('Not implemented');
     }
 
     /** {@inheritdoc} */
     public function getMetadata($key = null): void
     {
+        throw new \RuntimeException('Not implemented');
     }
 }
