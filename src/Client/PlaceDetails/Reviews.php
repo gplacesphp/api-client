@@ -16,11 +16,13 @@ final class Reviews
         $this->reviews = $reviews;
     }
 
+    /** @return Review[] */
     public function reviews(): array
     {
         return $this->reviews;
     }
 
+    /** @param array[] $data */
     public static function fromArray(array $data): self
     {
         return new self(

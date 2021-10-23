@@ -12,9 +12,10 @@ final class OptionalParameters
     private $region;
     /** @var string|null */
     private $sessionToken;
-    /** @var array */
+    /** @var string[] */
     private $fields;
 
+    /** @param string[] $fields */
     private function __construct(
         ?string $language = null,
         ?string $region = null,
@@ -27,6 +28,7 @@ final class OptionalParameters
         $this->fields = $fields;
     }
 
+    /** @param array<string,mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
@@ -62,6 +64,7 @@ final class OptionalParameters
         );
     }
 
+    /** @return array<string,mixed> */
     public function toArray(): array
     {
         return \array_filter(

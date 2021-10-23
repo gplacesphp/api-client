@@ -26,6 +26,7 @@ class UrlException extends ClientException
         return new self('Argument "inputType" is required and cannot be empty.');
     }
 
+    /** @param string[] $inputTypes */
     public static function unsupportedInputType(string $inputType, array $inputTypes): self
     {
         $inputTypesString = \implode("', '", $inputTypes);

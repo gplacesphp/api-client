@@ -27,11 +27,13 @@ final class Location
         return $this->longitude;
     }
 
+    /** @param array<string,float> $data */
     public static function fromArray(array $data): self
     {
         return new self($data['lat'] ?? 0.0, $data['lng'] ?? 0.0);
     }
 
+    /** @return array<string,float> */
     public function toArray(): array
     {
         return [

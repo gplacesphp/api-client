@@ -211,7 +211,8 @@ final class UrlTest extends TestCase
         $this->assertSame('c47f12cc02098881b1a8ecbf56dc46dd', $url->toHash());
     }
 
-    public function optionalParameterProvider(): \Generator
+    /** @return iterable<string,array> */
+    public function optionalParameterProvider(): iterable
     {
         yield 'language' => [
             OptionalParameters::fromArray(['language' => 'pl']),
@@ -238,7 +239,8 @@ final class UrlTest extends TestCase
         ];
     }
 
-    public function findPlaceOptionalParameterProvider(): \Generator
+    /** @return iterable<string,array> */
+    public function findPlaceOptionalParameterProvider(): iterable
     {
         yield 'language' => [
             FindPlaceOptionalParameters::fromArray(['language' => 'pl']),
@@ -256,6 +258,7 @@ final class UrlTest extends TestCase
         ];
     }
 
+    /** @param array<string|int,string|int|array> $params */
     private function buildDetailsUrl(array $params): string
     {
         $paramsString = \http_build_query($params);
@@ -263,6 +266,7 @@ final class UrlTest extends TestCase
         return "https://maps.googleapis.com/maps/api/place/details/json?{$paramsString}";
     }
 
+    /** @param array<string|int,string|int|array> $params */
     private function buildFindPlaceUrl(array $params): string
     {
         $paramsString = \http_build_query($params);

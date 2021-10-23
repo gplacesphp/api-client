@@ -16,6 +16,7 @@ final class AddressComponents
         $this->components = $components;
     }
 
+    /** @param array[] $data */
     public static function fromArray(array $data): self
     {
         return new self(
@@ -34,6 +35,7 @@ final class AddressComponents
         return $this->components;
     }
 
+    /** @return array[] */
     public function toArray(): array
     {
         return \array_map(

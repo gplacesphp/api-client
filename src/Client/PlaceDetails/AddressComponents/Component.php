@@ -33,11 +33,13 @@ final class Component
         return $this->shortName;
     }
 
+    /** @return string[] */
     public function types(): array
     {
         return $this->types;
     }
 
+    /** @param array<string,string|array> $data */
     public static function fromArray(array $data): self
     {
         return new self(
@@ -47,6 +49,7 @@ final class Component
         );
     }
 
+    /** @return array<string,array|string> */
     public function toArray(): array
     {
         return [
