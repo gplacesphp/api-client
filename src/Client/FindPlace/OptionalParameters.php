@@ -8,15 +8,17 @@ final class OptionalParameters
 {
     /** @var string|null */
     private $language;
-    /** @var array */
+    /** @var string[] */
     private $fields;
 
+    /** @param string[] $fields */
     private function __construct(?string $language = null, array $fields = [])
     {
         $this->language = $language;
         $this->fields = $fields;
     }
 
+    /** @param array<string,string|array> $data */
     public static function fromArray(array $data): self
     {
         return new self(
@@ -44,6 +46,7 @@ final class OptionalParameters
         );
     }
 
+    /** @return array<string,string> */
     public function toArray(): array
     {
         return \array_filter(

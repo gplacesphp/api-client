@@ -30,6 +30,7 @@ final class Geometry
         return $this->viewport;
     }
 
+    /** @param array<string,array> $data */
     public static function fromArray(array $data): self
     {
         return new self(

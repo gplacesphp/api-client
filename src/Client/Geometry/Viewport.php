@@ -17,6 +17,7 @@ final class Viewport
         $this->southwest = $southwest;
     }
 
+    /** @param array<string,array> $data */
     public static function fromArray(array $data): self
     {
         return new self(

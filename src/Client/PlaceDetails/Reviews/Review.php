@@ -83,6 +83,7 @@ final class Review
         return $this->time;
     }
 
+    /** @param array<string,int|string> $data */
     public static function fromArray(array $data): self
     {
         return new self(
@@ -97,6 +98,7 @@ final class Review
         );
     }
 
+    /** @return array<string,string|int> */
     public function toArray(): array
     {
         return [

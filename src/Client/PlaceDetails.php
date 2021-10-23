@@ -48,6 +48,7 @@ final class PlaceDetails
     /** @var string */
     private $website;
 
+    /** @param string[] $types */
     private function __construct(
         AddressComponents $addressComponents,
         string $adrAddress,
@@ -181,6 +182,7 @@ final class PlaceDetails
         return $this->adrAddress;
     }
 
+    /** @param array<string,mixed> $data */
     public static function fromArray(array $data): self
     {
         $types = \array_map(

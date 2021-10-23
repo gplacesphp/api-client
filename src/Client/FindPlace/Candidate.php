@@ -53,6 +53,7 @@ final class Candidate
         return $this->name;
     }
 
+    /** @param array<string,string|array> $data */
     public static function fromArray(array $data): self
     {
         return new self(

@@ -9,6 +9,7 @@ final class FixtureLoader
     /** @var string */
     private $fixturesDir;
 
+    /** @return array<mixed,mixed> */
     public function getJson(string $name): array
     {
         $fixturesDir = $this->fixturesDir();
