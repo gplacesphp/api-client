@@ -16,7 +16,7 @@ final class AddressComponents
         $this->components = $components;
     }
 
-    /** @param array[] $data */
+    /** @param array<array{long_name: string, short_name: string, types: string[]}> $data */
     public static function fromArray(array $data): self
     {
         return new self(

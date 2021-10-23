@@ -28,7 +28,7 @@ final class OptionalParameters
         $this->fields = $fields;
     }
 
-    /** @param array<string,mixed> $data */
+    /** @param array{language?: string, region?: string, sessiontoken?: string, fields?: string[]} $data */
     public static function fromArray(array $data): self
     {
         return new self(

@@ -22,7 +22,7 @@ final class FindPlace
         return $this->candidates;
     }
 
-    /** @param array[] $data */
+    /** @param array<array{formatted_address: string, geometry: array, name: string, place_id: string, id: string}> $data */
     public static function fromArray(array $data): self
     {
         return new self(

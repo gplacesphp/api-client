@@ -18,7 +18,7 @@ final class OptionalParameters
         $this->fields = $fields;
     }
 
-    /** @param array<string,string|array> $data */
+    /** @param array{language?: string, fields?: string[]} $data */
     public static function fromArray(array $data): self
     {
         return new self(

@@ -22,7 +22,7 @@ final class Reviews
         return $this->reviews;
     }
 
-    /** @param array[] $data */
+    /** @param array<array{author_name: string, author_url: string, language: string, profile_photo_url: string, rating: int, relative_time_description: string, text: string, time: int}> $data */
     public static function fromArray(array $data): self
     {
         return new self(
