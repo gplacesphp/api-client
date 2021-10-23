@@ -3,8 +3,6 @@ parameters:
     paths:
         - src
         - tests
-    excludes_analyse:
-        - tests/TestCase/Cache/CacheSpy.php
 
 includes:
     - vendor/phpstan/phpstan-phpunit/extension.neon
