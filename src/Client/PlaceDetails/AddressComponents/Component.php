@@ -39,7 +39,7 @@ final class Component
         return $this->types;
     }
 
-    /** @param array<string,string|array> $data */
+    /** @param array{long_name: string, short_name: string, types: string[]} $data */
     public static function fromArray(array $data): self
     {
         return new self(
@@ -49,7 +49,7 @@ final class Component
         );
     }
 
-    /** @return array<string,array|string> */
+    /** @return array{long_name: string, short_name: string, types: string[]} */
     public function toArray(): array
     {
         return [
