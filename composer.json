@@ -59,7 +59,7 @@
         ],
         "cs-fixer:analyze": "@php vendor/bin/php-cs-fixer fix --diff --dry-run -v",
         "cs-fixer:fix": "@php vendor/bin/php-cs-fixer fix --diff -v --ansi",
-        "phpstan:analyze": "vendor/bin/phpstan analyze -c phpstan.neon --level=7 --no-progress src tests"
+        "phpstan:analyze": "vendor/bin/phpstan analyze -c phpstan.neon"
     },
     "support": {
         "issues": "https://github.com/gplacesphp/api-client/issues"

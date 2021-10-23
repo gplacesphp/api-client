@@ -139,88 +139,105 @@ final class ClientTest extends TestCase
     {
         return new class() implements RequestInterface {
             /** {@inheritdoc} */
-            public function getProtocolVersion(): void
+            public function getProtocolVersion(): string
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function withProtocolVersion($version): void
+            public function withProtocolVersion($version): self
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function getHeaders(): void
+            public function getHeaders(): array
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function hasHeader($name): void
+            public function hasHeader($name): bool
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function getHeader($name): void
+            public function getHeader($name): array
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function getHeaderLine($name): void
+            public function getHeaderLine($name): string
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function withHeader($name, $value): void
+            public function withHeader($name, $value): self
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function withAddedHeader($name, $value): void
+            public function withAddedHeader($name, $value): self
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function withoutHeader($name): void
+            public function withoutHeader($name): self
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function getBody(): void
+            public function getBody(): StreamInterface
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function withBody(StreamInterface $body): void
+            public function withBody(StreamInterface $body): self
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function getRequestTarget(): void
+            public function getRequestTarget(): string
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function withRequestTarget($requestTarget): void
+            public function withRequestTarget($requestTarget): self
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function getMethod(): void
+            public function getMethod(): string
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function withMethod($method): void
+            public function withMethod($method): self
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function getUri(): void
+            public function getUri(): UriInterface
             {
+                throw new \RuntimeException('Not implemented');
             }
 
             /** {@inheritdoc} */
-            public function withUri(UriInterface $uri, $preserveHost = false): void
+            public function withUri(UriInterface $uri, $preserveHost = false): self
             {
+                throw new \RuntimeException('Not implemented');
             }
         };
     }
