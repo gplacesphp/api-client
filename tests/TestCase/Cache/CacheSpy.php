@@ -8,10 +8,12 @@ use Psr\SimpleCache\CacheInterface;
 
 final class CacheSpy implements CacheInterface
 {
+    /** @var int */
     public $getCall = 0;
-    /** @var array */
+    /** @var array<mixed,mixed> */
     private $data;
 
+    /** @param array<mixed,mixed> $data */
     public function __construct(array $data)
     {
         $this->data = $data;
@@ -26,33 +28,43 @@ final class CacheSpy implements CacheInterface
     }
 
     /** {@inheritdoc} */
-    public function set($key, $value, $ttl = null): void
+    public function set($key, $value, $ttl = null): bool
     {
+        return true;
     }
 
     /** {@inheritdoc} */
-    public function delete($key): void
+    public function delete($key): bool
     {
+        return true;
     }
 
     /** {@inheritdoc} */
-    public function clear(): void
+    public function clear(): bool
     {
+        return true;
     }
 
-    /** {@inheritdoc} */
-    public function getMultiple($keys, $default = null): void
+    /**
+     * @param iterable<string> $keys
+     *
+     * @return iterable<string,mixed>
+     */
+    public function getMultiple($keys, $default = null): iterable
     {
+        return ['a' => 0];
     }
 
-    /** {@inheritdoc} */
-    public function setMultiple($values, $ttl = null): void
+    /** @param iterable<string,mixed> $values */
+    public function setMultiple($values, $ttl = null): bool
     {
+        return true;
     }
 
-    /** {@inheritdoc} */
-    public function deleteMultiple($keys): void
+    /** @param iterable<string> $keys */
+    public function deleteMultiple($keys): bool
     {
+        return true;
     }
 
     /** {@inheritdoc} */
