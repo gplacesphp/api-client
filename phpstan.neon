@@ -4,7 +4,6 @@ parameters:
         - src
         - tests
     excludes_analyse:
-        - src/Cache/NullCache.php
         - tests/TestCase/Cache/CacheSpy.php
 
 includes:

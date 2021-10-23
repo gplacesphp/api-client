@@ -11,36 +11,47 @@ final class NullCache implements CacheInterface
     /** {@inheritdoc} */
     public function get($key, $default = null)
     {
+        return '';
     }
 
     /** {@inheritdoc} */
-    public function set($key, $value, $ttl = null)
+    public function set($key, $value, $ttl = null): bool
     {
+        return true;
     }
 
     /** {@inheritdoc} */
-    public function delete($key)
+    public function delete($key): bool
     {
+        return true;
     }
 
     /** {@inheritdoc} */
-    public function clear()
+    public function clear(): bool
     {
+        return true;
     }
 
-    /** {@inheritdoc} */
-    public function getMultiple($keys, $default = null)
+    /**
+     * @param iterable<string> $keys
+     *
+     * @return iterable<string,mixed>
+     */
+    public function getMultiple($keys, $default = null): iterable
     {
+        return ['a' => 0];
     }
 
-    /** {@inheritdoc} */
-    public function setMultiple($values, $ttl = null)
+    /** @param iterable<string,mixed> $values */
+    public function setMultiple($values, $ttl = null): bool
     {
+        return true;
     }
 
-    /** {@inheritdoc} */
-    public function deleteMultiple($keys)
+    /** @param iterable<string> $keys */
+    public function deleteMultiple($keys): bool
     {
+        return true;
     }
 
     /** {@inheritdoc} */
